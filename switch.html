@@ -12,6 +12,54 @@
 			/* Hint: Dit component kun je volledig met HTML en CSS bouwen */
 
 			/* Hint: Hoe ver ga je qua styling? Vraag jezelf dit altijd af */
+
+			form{
+				input{
+					appearance: none;
+					width: 10rem;
+					height: 4rem;
+					background-color: grey;
+					border-radius: 10rem;
+					cursor: pointer;
+					position: relative;
+					display: flex;
+					align-items: center;
+					padding-inline: .5em;
+
+					&::before{
+						content: '';
+						background-color: white;
+						width: 4em;
+						height: 4em;
+						position: absolute;
+						border-radius: 50%;
+
+						@media (prefers-reduced-motion: no-preference){
+							transform: translateX(0);
+							transition-duration: .3s;
+							transition-timing-function: ease;
+						}
+					}
+				}
+
+				input:checked{
+					background-color: #1D9E75;
+
+					&::before{
+						@media (prefers-reduced-motion: no-preference){
+							transform: translateX(7em);
+							transition-duration: .3s;
+							transition-timing-function: ease;
+						}
+						
+						content: 'aan';
+						align-items: center;
+						justify-content: center;
+						display: flex;
+						
+					}
+				}
+			}
 		</style>
 	</head>
 	<body>
@@ -19,6 +67,10 @@
 		
 		<!-- Hint: Safari heeft hiervoor iets bedacht, maar is dat al een standaard?
 		     Wat gebeurt er in browsers die dat nog niet ondersteunen? -->
+
+		<form>
+			<input type="checkbox" name="switch" switch>
+		</form>
 
 		<details open>
 			<summary>Demo video</summary>
