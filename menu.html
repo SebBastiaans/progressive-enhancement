@@ -9,6 +9,41 @@
 		<style>
 			/* Schrijf hier gewoon je CSS voor dit component */
 
+			nav{
+				transform: translateX(-100%);	
+			}
+
+			nav:target{
+				transform: translateX(0);
+			}
+
+			nav{
+				background-color: var(--green);
+				width: max-content;
+
+				ul{
+					padding: 0;
+					li{
+						list-style: none;
+						padding: 1em;
+
+						a{
+							text-decoration: none;
+							color: var(--blue);
+							font-weight: 600;
+						}
+
+						&:hover{
+							background-color: var(--blue);
+							a{
+								color: var(--green);
+							}
+						}
+					}
+				}
+			}
+
+
 			/* Hint: kijk eens naar :target
 			   https://developer.mozilla.org/en-US/docs/Web/CSS/:target */
 		</style>
@@ -50,8 +85,9 @@
 			-->
 		</main>
 
-		<!-- Dit is het menu
-		<nav>
+		<a href="#nav">menu</a>
+		<!-- Dit is het menu -->
+		<nav id="nav">
 			<ul>
 				<li><a href="index.html">Home</a></li>
 				<li><a href="faq.html">Veelgestelde vragen</a></li>
@@ -64,7 +100,7 @@
 				<li><a href="file.html">File image upload met preview</a></li>
 			</ul>
 		</nav>
-		-->
+		
 
 		<!-- Dit is eventueel het 'Sluiten' icoon
 		<svg viewBox="0 0 32 32" width="32" height="32">
