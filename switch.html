@@ -12,51 +12,60 @@
 			/* Hint: Dit component kun je volledig met HTML en CSS bouwen */
 
 			/* Hint: Hoe ver ga je qua styling? Vraag jezelf dit altijd af */
+			input[switch]::thumb { /*https://webkit.org/blog/15054/an-html-switch-control/*/
+				width: 300px;
+				height: 200px;
+			}
+			input[switch] {
+				accent-color: var(--green);
+			}
 
-			form{
-				input{
-					appearance: none;
-					width: 10rem;
-					height: 4rem;
-					background-color: grey;
-					border-radius: 10rem;
-					cursor: pointer;
-					position: relative;
-					display: flex;
-					align-items: center;
-					padding-inline: .5em;
+			@supports not selector(::thumb) {
+				form{
+					input{
+						appearance: none;
+						width: 10rem;
+						height: 4rem;
+						background-color: grey;
+						border-radius: 10rem;
+						cursor: pointer;
+						position: relative;
+						display: flex;
+						align-items: center;
+						padding-inline: .5em;
 
-					&::before{
-						content: '';
-						background-color: white;
-						width: 4em;
-						height: 4em;
-						position: absolute;
-						border-radius: 50%;
+						&::before{
+							content: '';
+							background-color: white;
+							width: 4em;
+							height: 4em;
+							position: absolute;
+							border-radius: 50%;
 
-						@media (prefers-reduced-motion: no-preference){
-							transform: translateX(0);
-							transition-duration: .3s;
-							transition-timing-function: ease;
+							@media (prefers-reduced-motion: no-preference){
+								transform: translateX(0);
+								transition-duration: .3s;
+								transition-timing-function: ease;
+							}
 						}
 					}
-				}
 
-				input:checked{
-					background-color: #1D9E75;
+					input:checked{
+						background-color: #1D9E75;
 
-					&::before{
-						@media (prefers-reduced-motion: no-preference){
-							transform: translateX(7em);
-							transition-duration: .3s;
-							transition-timing-function: ease;
+						&::before{
+							@media (prefers-reduced-motion: no-preference){
+								transform: translateX(7em);
+								transition-duration: .3s;
+								transition-timing-function: ease;
+							}
+							
+							content: 'aan';
+							align-items: center;
+							justify-content: center;
+							display: flex;
+							
 						}
-						
-						content: 'aan';
-						align-items: center;
-						justify-content: center;
-						display: flex;
-						
 					}
 				}
 			}
