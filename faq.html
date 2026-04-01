@@ -40,10 +40,13 @@
 			width: fit-content;
 			border-radius: .5rem;
 			cursor: pointer;
-			list-style: none;
 			display: flex;
 			align-items: center;
 			gap: 1em;
+
+			@supports selector(::before){
+				list-style: none;
+			}
 
 			&::before {
 				content: url('assets/plus.svg');
