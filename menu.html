@@ -16,7 +16,7 @@
 				margin: .5em;
 			}
 
-			:target{
+			nav:target{ /* Als JS niet werkt gebruikt het gewoon deze CSS */
 				transform: translateX(0);
 			}
 
@@ -92,10 +92,12 @@
 
 			//stap 2: Wacht tot er op geklikt wordt
 			//stap 3: voeg of verwijder class
-			openBtn.addEventListener('click', function() {
+			openBtn.addEventListener('click', function(event) {
+				event.preventDefault()
 				menu.classList.add('opened-menu')
 			})
-			closeBtn.addEventListener('click', function() {
+			closeBtn.addEventListener('click', function(event) {
+				event.preventDefault()
 				menu.classList.remove('opened-menu')
 			})
 
