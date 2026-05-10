@@ -9,6 +9,45 @@
 		<style>
 			/* Hint: welk layout model is handig om content naast elkaar te zetten? */
 
+			section{
+				overflow: hidden;
+				position: absolute;
+			}
+			ul{
+				display: flex;
+				transition: transform 0.4s ease;
+				padding: 0;
+
+				li{
+					flex-shrink: 0;
+					width: 70rem;
+					list-style: none;
+					display: flex;
+					align-items: center;
+					padding: 3rem;
+
+					text-align: center;
+					text-wrap: pretty;
+					font-weight: 700;
+					font-style: italic;
+					font-size: 3rem;
+				}
+				
+				li:nth-of-type(1), li:nth-of-type(4){
+					background-color: var(--purple);
+				}
+				li:nth-of-type(2), li:nth-of-type(5){
+					background-color: var(--yellow);
+				}
+				li:nth-of-type(3), li:nth-of-type(6){
+					background-color: var(--green);
+				}
+			}
+
+			details{
+				position: absolute;
+				bottom: 1px;
+			}
 		</style>
 		<script type="module">
 			/* Schrijf hier eventueel je client-side JavaScript */
@@ -19,12 +58,12 @@
 
 		<section>
 			<ul>
-				<li>Websites leren bouwen, én praktijkervaring opdoen?</li>
-				<li>FDND is de enige HBO-opleiding voor Frontend Development in Nederland, in twee jaar stomen wij jou klaar voor het werkveld</li>
-				<li>Je werkt bij ons aan échte projecten voor échte opdrachtgevers</li>
-				<li>In het studiomodel werken studenten onder begeleiding van coaches en experts uit het vakgebied aan praktijkgerichte opdrachten</li>
-				<li>Bij FDND leer je websites bouwen en andere belangrijke skills die jij in de praktijk toe kan passen</li>
-				<li>Een Associate degree-opleiding is een tweejarige hbo-opleiding op niveau 5</li>
+				<li>"Websites leren bouwen, én praktijkervaring opdoen?"</li>
+				<li>"FDND is de enige HBO-opleiding voor Frontend Development in Nederland, in twee jaar stomen wij jou klaar voor het werkveld"</li>
+				<li>"Je werkt bij ons aan échte projecten voor échte opdrachtgevers"</li>
+				<li>"In het studiomodel werken studenten onder begeleiding van coaches en experts uit het vakgebied aan praktijkgerichte opdrachten"</li>
+				<li>"Bij FDND leer je websites bouwen en andere belangrijke skills die jij in de praktijk toe kan passen"</li>
+				<li>"Een Associate degree-opleiding is een tweejarige hbo-opleiding op niveau 5"</li>
 			</ul>
 		</section>
 
