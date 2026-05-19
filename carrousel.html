@@ -9,20 +9,20 @@
 		<style>
 			/* Hint: welk layout model is handig om content naast elkaar te zetten? */
 
-			section{
+			ul{
 				overflow-x: scroll;
 				scroll-snap-type: x mandatory;
 				width: 100%;
 				position: absolute;
-			}
-			ul{
+
 				display: flex;
 				transition: transform 0.4s ease;
 				padding: 0;
+				anchor-name: --carousel;
 
 				li{
 					flex-shrink: 0;
-					width: 70rem;
+					width: 70%;
 					list-style: none;
 					display: flex;
 					align-items: center;
@@ -47,17 +47,12 @@
 				li:nth-of-type(3), li:nth-of-type(6){
 					background-color: var(--green);
 				}
-			}
 
-			nav{
-				display: flex;
-				align-items: center;
-				justify-content: space-between;
-				width: 100%;
-				position: absolute;
-				top: 22rem;
+				&::scroll-button(*){
+					position: fixed;
+					position-anchor: --carousel;
+					position-visibility: always;
 
-				button{
 					background-color: var(--blue);
 					color: var(--green);
 					border: none;
@@ -65,13 +60,25 @@
 					padding: 0.5rem 1.5rem;
 					cursor: pointer;
 					margin: 1rem;
+					width: 5rem;
+					display: flex;
+					justify-content: center;
+				}
+
+				&::scroll-button(right){
+					content: 'Volgende';
+					right: 10px;
+					position-area: right bottom;
+				}
+
+				&::scroll-button(left){
+					content: 'Vorige';
+					left: 10px;
+					position-area: left bottom;
+
 				}
 			}
 
-			details{
-				position: absolute;
-				bottom: 1px;
-			}
 		</style>
 		<script type="module">
 			/* Schrijf hier eventueel je client-side JavaScript */
@@ -81,27 +88,20 @@
 	<body>
 		<h1>Carrousel</h1>
 
-		<section>
-			<ul>
-				<li>"Websites leren bouwen, én praktijkervaring opdoen?"</li>
-				<li>"FDND is de enige HBO-opleiding voor Frontend Development in Nederland, in twee jaar stomen wij jou klaar voor het werkveld"</li>
-				<li>"Je werkt bij ons aan échte projecten voor échte opdrachtgevers"</li>
-				<li>"In het studiomodel werken studenten onder begeleiding van coaches en experts uit het vakgebied aan praktijkgerichte opdrachten"</li>
-				<li>"Bij FDND leer je websites bouwen en andere belangrijke skills die jij in de praktijk toe kan passen"</li>
-				<li>"Een Associate degree-opleiding is een tweejarige hbo-opleiding op niveau 5"</li>
-			</ul>
-		</section>
+		<ul>
+			<li>"Websites leren bouwen, én praktijkervaring opdoen?"</li>
+			<li>"FDND is de enige HBO-opleiding voor Frontend Development in Nederland, in twee jaar stomen wij jou klaar voor het werkveld"</li>
+			<li>"Je werkt bij ons aan échte projecten voor échte opdrachtgevers"</li>
+			<li>"In het studiomodel werken studenten onder begeleiding van coaches en experts uit het vakgebied aan praktijkgerichte opdrachten"</li>
+			<li>"Bij FDND leer je websites bouwen en andere belangrijke skills die jij in de praktijk toe kan passen"</li>
+			<li>"Een Associate degree-opleiding is een tweejarige hbo-opleiding op niveau 5"</li>
+		</ul>
 
-		<nav>
-			<button id="vorige">Vorige</button>
-			<button id="volgende">Volgende</button>
-		</nav>
-
-		<details open>
+		<!-- <details open>
 			<summary>Demo video</summary>
 			<video src="assets/carrousel.mp4" width="1298" height="469" controls muted loop>
 				<a href="assets/carrousel.mp4">assets/carrousel.mp4</a>
 			</video>
-		</details>
+		</details> -->
 	</body>
 </html>
