@@ -7,10 +7,43 @@
 		<link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
 		<link href="assets/styles.css" rel="stylesheet">
 		<style>
-			/* Schrijf hier gewoon je CSS voor dit component */
+			nav {
+				display: flex;
+				gap: .25rem;
+			}
 
-			/* Hint: kijk eens naar de :target selector
-			   https://developer.mozilla.org/en-US/docs/Web/CSS/:target */
+			nav a {
+				padding: .5em 1em;
+				text-decoration: none;
+				color: var(--blue);
+				border: 2px solid transparent;
+				border-radius: .5rem .5rem 0 0;
+				margin-bottom: -2px;
+			}
+
+			section {
+				display: none;
+				padding: 1.5rem;
+				border: 2px solid var(--blue-50);
+				border-radius: 0 0rem .5rem .5rem;
+			}
+
+			/* toon de getargete section, of anders de eerste */
+			section:target,
+			body:not(:has(section:target)) section:first-of-type {
+				display: block;
+			}
+
+			/* markeer de bijpassende tab als actief */
+			body:has(#docenten:target) nav a[href="#docenten"],
+			body:has(#sprints:target) nav a[href="#sprints"],
+			body:has(#gedragscriteria:target) nav a[href="#gedragscriteria"],
+			body:has(#open-avond:target) nav a[href="#open-avond"],
+			body:not(:has(section:target)) nav a:first-child {
+				background: white;
+				border-color: var(--blue-50);
+				border-bottom-color: white;
+			}
 		</style>
 		<script type="module">
 			/* Schrijf hier eventueel je client-side JavaScript */
